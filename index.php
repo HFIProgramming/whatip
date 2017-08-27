@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . 'Classes/loader.php';
+require_once __DIR__ . '/Classes/loader.php';
 
 error_reporting(0);
 
