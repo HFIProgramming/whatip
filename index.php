@@ -16,7 +16,7 @@ if ($result->slash['getHeader'] == true) {
 	exit();
 }
 
-if (!empty($base64 = $result->slash['to'])) {
+if ((!empty($base64 = $result->slash['to'])) && (!is_bool($result->slash['to']))) {
 	$url = base64_decode($base64);
 	if ($result->slash['https']) {
 		header('Location: https://' . $url);
