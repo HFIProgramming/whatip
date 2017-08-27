@@ -11,6 +11,11 @@ if (empty($result->parameter)) {
 	exit();
 }
 
+if ($result->slash['ping'] == true) {
+	echo 'pong!';
+	exit();
+}
+
 if ($result->slash['getHeader'] == true) {
 	echo json_encode(getallheaders());
 	exit();
