@@ -1,5 +1,6 @@
 <?php
 
+echo '2';
 require_once __DIR__ . '/Classes/loader.php';
 
 error_reporting(0);
