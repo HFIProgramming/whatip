@@ -1,0 +1,23 @@
+RewriteEngine On
+<If "%{HTTP_HOST} == 'whatip.ga'">
+RewriteCond %{HTTP:KERSSL} !on
+RewriteRule (.*) https://whatip.ga/$1 [NC,L,R=301]
+<If "%{HTTP:KERSSL} == 'on'">
+    # Header Set
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</If>
+</If>
+
+<If "%{HTTP_HOST} == 'whatip.ml'">
+RewriteCond %{HTTP:KERSSL} !on
+RewriteRule (.*) https://whatip.ml/$1 [NC,L,R=301]
+</If>
+
+<If "%{HTTP_HOST} == 'www.whatip.ga'">
+Redirect / https://whatip.ga/
+</If>
+
+<If "%{HTTP_HOST} == 'www.whatip.ml'">
+Redirect / https://whatip.ga/
+</If>
+
