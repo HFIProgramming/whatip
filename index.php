@@ -4,6 +4,8 @@ require_once __DIR__ . '/Classes/loader.php';
 
 error_reporting(0);
 
+var_dump($result);
+echo '1';
 $result = new split($_SERVER['REQUEST_URI']);
 
 if (empty($result->parameter)) {
