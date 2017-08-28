@@ -53,7 +53,7 @@ class split
 
 		// STOP if first parameter is empty
 
-		//if (empty($elements[0])) return false;
+		if (empty($elements[0])) return false;
 
 		// Create a new empty array.
 		$args = [];
