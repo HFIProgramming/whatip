@@ -21,12 +21,19 @@ if ($result->slash['getHeader'] == true) {
 	exit();
 }
 
-if ((!empty($base64 = $result->slash['to'])) && (!is_bool($result->slash['to']))) {
-	$url = base64_decode($base64);
+if (!empty($base64 = $result->slash['base64'])){
+	echo base64_encode($base64);
+	exit();
+}
+
+if ((!empty($toURI = $result->slash['to'])) && (!is_bool($result->slash['to']))) {
+	$url = base64_decode($toURI);
 	if ($result->slash['https']) {
 		header('Location: https://' . $url);
 	} elseif ($result->slash['http']) {
 		header('Location: http://' . $url);
+	} elseif ($result->slash['origin']) {
+		header('Location: '.$url);
 	} else {
 		header('Location: //' . $url);
 	}
