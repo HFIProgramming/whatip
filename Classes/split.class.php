@@ -59,7 +59,7 @@ class split
 		$args = [];
 
 		// Loop through each pair of elements.
-		for ($i = 1; $i < count($elements); $i = $i + 2) {
+		for ($i = 0; $i < count($elements); $i = $i + 2) {
 			if (!empty($elements[$i + 1])) $args[$elements[$i]] = $elements[$i + 1];
 			else $args[$elements[$i]] = true;
 		}
