@@ -6,9 +6,6 @@ error_reporting(0);
 
 $result = new split($_SERVER['REQUEST_URI']);
 
-var_dump($result);
-exit();
-
 if (empty($result->parameter)) {
 	echo $_SERVER['REMOTE_ADDR'];
 	exit();
