@@ -16,6 +16,11 @@ if ($result->slash['ping'] == true) {
 	exit();
 }
 
+if ($result->slash['204'] == true){
+	header("HTTP/1.0 204 No Response");
+	exit();
+}
+
 if ($result->slash['json'] == true){
 	 echo json_encode(['ip' => $_SERVER['REMOTE_ADDR']]);
    exit();
