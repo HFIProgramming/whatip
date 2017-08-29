@@ -27,6 +27,10 @@ if ($result->slash['getHeader'] == true) {
 }
 
 if ((!empty($base64 = $result->slash['base64'])) || (!empty($base64 = $result->query['base64']))){
+	if ($result->slash['decode'] == true || $result->query['decode'] == true){
+		echo base64_decode($base64);
+		exit();
+	}
 	echo base64_encode($base64);
 	exit();
 }
