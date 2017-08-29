@@ -1,5 +1,5 @@
 <If "%{HTTP_HOST} == 'whatip.ga'">
-<If "%{HTTP:KERSSL} == 'off'">
+<If "%{HTTP:KERSSL} =~ 'on'">
 Redirect 301 / https://whatip.ga
 </If>
 <If "%{HTTP:KERSSL} == 'on'">
@@ -9,7 +9,7 @@ Redirect 301 / https://whatip.ga
 </If>
 
 <If "%{HTTP_HOST} == 'whatip.ml'">
-<If "%{HTTP:KERSSL} == 'off'">
+<If "%{HTTP:KERSSL} =~ 'on'">
 Redirect 301 / https://whatip.ml
 </If>
 </If>
