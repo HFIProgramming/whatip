@@ -16,9 +16,9 @@ if ($result->slash['ping'] == true) {
 	exit();
 }
 
-if ($result->slash['json']){
-	echo json_encoded(['ip' => $_SERVER['REMOTE_ADDR']]);
-        exit();
+if ($result->slash['json'] == true){
+	 echo json_encoded(['ip' => $_SERVER['REMOTE_ADDR']]);
+   exit();
 }
 
 if ($result->slash['getHeader'] == true) {
