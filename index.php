@@ -16,12 +16,17 @@ if ($result->slash['ping'] == true) {
 	exit();
 }
 
+if ($result->slash['json']){
+	echo json_encoded(['ip' => $_SERVER['REMOTE_ADDR']]);
+        exit();
+}
+
 if ($result->slash['getHeader'] == true) {
 	echo json_encode(getallheaders());
 	exit();
 }
 
-if (!empty($base64 = $result->slash['base64'])){
+if ((!empty($base64 = $result->slash['base64'])) || (!empty($base64 = $result->query['base64']))){
 	echo base64_encode($base64);
 	exit();
 }
