@@ -16,7 +16,7 @@ if ($result->slash['ping'] == true) {
 	exit();
 }
 
-if ($result->slash['204'] == true){
+if ($result->slash['204'] == true || $result->slash['generate_204'] == true){
 	header("HTTP/1.0 204 No Response");
 	exit();
 }
