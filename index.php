@@ -12,7 +12,7 @@ if (empty($result->parameter)) {
 }
 
 if ($result->slash['ping'] == true) {
-	echo 'pong!';
+	echo 'pong';
 	exit();
 }
 
