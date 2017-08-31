@@ -16,14 +16,14 @@ if ($result->slash['ping'] == true) {
 	exit();
 }
 
-if ($result->slash['204'] == true || $result->slash['generate_204'] == true){
+if ($result->slash['204'] == true || $result->slash['generate_204'] == true) {
 	header("HTTP/1.0 204 No Response");
 	exit();
 }
 
-if ($result->slash['json'] == true){
-	 echo json_encode(['ip' => $_SERVER['REMOTE_ADDR']]);
-   exit();
+if ($result->slash['json'] == true) {
+	echo json_encode(['ip' => $_SERVER['REMOTE_ADDR']]);
+	exit();
 }
 
 if ($result->slash['getHeader'] == true) {
@@ -31,12 +31,12 @@ if ($result->slash['getHeader'] == true) {
 	exit();
 }
 
-if ((!empty($base64 = $result->slash['base64'])) || (!empty($base64 = $result->query['base64']))){
-	if ($result->slash['decode'] == true || $result->query['decode'] == true){
-		echo base64_decode($base64);
+if ((!empty($base64 = $result->slash['base64'])) || (!empty($base64 = $result->query['base64']))) {
+	if ($result->slash['decode'] == true || $result->query['decode'] == true) {
+		echo htmlspecialchars(base64_decode($base64));
 		exit();
 	}
-	echo base64_encode($base64);
+	echo htmlspecialchars(base64_encode($base64));
 	exit();
 }
 
@@ -47,7 +47,7 @@ if ((!empty($toURI = $result->slash['to'])) && (!is_bool($result->slash['to'])))
 	} elseif ($result->slash['http']) {
 		header('Location: http://' . $url);
 	} elseif ($result->slash['origin']) {
-		header('Location: '.$url);
+		header('Location: ' . $url);
 	} else {
 		header('Location: //' . $url);
 	}
