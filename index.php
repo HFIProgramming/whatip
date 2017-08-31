@@ -31,6 +31,11 @@ if ($result->slash['getHeader'] == true) {
 	exit();
 }
 
+if ($result->slash['getUserAgent'] == true) {
+	echo $_SERVER['HTTP_USER_AGENT'];
+	exit();
+}
+
 if ((!empty($base64 = $result->slash['base64'])) || (!empty($base64 = $result->query['base64']))) {
 	if ($result->slash['decode'] == true || $result->query['decode'] == true) {
 		if (empty($_SERVER['HTTP_USER_AGENT'])) {
