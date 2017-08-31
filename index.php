@@ -33,10 +33,14 @@ if ($result->slash['getHeader'] == true) {
 
 if ((!empty($base64 = $result->slash['base64'])) || (!empty($base64 = $result->query['base64']))) {
 	if ($result->slash['decode'] == true || $result->query['decode'] == true) {
-		echo htmlspecialchars(base64_decode($base64));
+		if (empty($_SERVER['HTTP_USER_AGENT'])) {
+			echo base64_decode($base64);
+		} else {
+			echo htmlspecialchars(base64_decode($base64));
+		}
 		exit();
 	}
-	echo htmlspecialchars(base64_encode($base64));
+	echo base64_encode($base64);
 	exit();
 }
 
