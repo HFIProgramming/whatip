@@ -30,6 +30,14 @@ https://www.v2ex.com/t/386624
     - 发送 302 跳转到 base64 编码后的地址，等同 -> `Location: //{Decoded Content}`
     - `/to/{base64}/http` 和 `/to/{base64}/https` 给 `{Decoded Content}` 加上前缀
     - `/to/{base64}/origin` 等同 -> `Location: {Decoded Content}`
+- `/getHeader`
+    - 以 JSON 格式返回当前收到的 Header 信息
+- `/getUserAgent`
+    - 以 Plain text 返回当前的 UserAgent  
+
+提示：抑制了所有的错误信息，如果收到空白，除了可能是输入不对，也可能是 500  
+
+- [ ] 异常需要有多一点处理
 
 部署在 Hostker 上面，速度还是不错的，有比较冷门需求的就拿去玩玩咯  
 没有留任何记录（懒），Apache2 的访问记录除外（这个也不会去看的）  
